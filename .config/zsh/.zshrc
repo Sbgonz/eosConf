@@ -1,4 +1,9 @@
 # Luke's config for the Zoomer Shell
+# Connect to a session called TMUX when the terminal is launched (not luke)
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
@@ -72,6 +77,9 @@ bindkey '^[[P' delete-char
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+# Plugin fzf cli commands history
+source //usr/share/zsh/plugins/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
