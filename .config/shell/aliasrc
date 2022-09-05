@@ -42,7 +42,8 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	z="zathura" \
+    fz='fzf | xargs -ro -d "\n" xdg-open 2>&-' \ # open_with_fzf
 
 alias \
 	lf="lfub" \

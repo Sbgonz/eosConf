@@ -13,3 +13,10 @@ map J zoom out
 map i recolor
 map p print
 map g goto top
+
+set default-bg \#282828
+set default-fg \#ebdbb2
+set recolor
+set recolor-lightcolor \#282828
+set recolor-keephue
+set recolor-reverse-video

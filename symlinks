@@ -1,0 +1,2 @@
+~/sync/dotfiles/eosConf/.config/systemd/user/timers.target.wants/eos-update-notifier.timer -> ~/.config/date-notifier.timer
+~/sync/dotfiles/eosConf/.zprofile -> ~/.config/shell/profile

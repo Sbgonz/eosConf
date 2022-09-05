@@ -21,9 +21,11 @@ set ifs "\n"
 set scrolloff 10
 # set icons
 set period 1
+set hidden on
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
+set autoquit on
 
 # cmds/functions
 cmd open ${{
@@ -76,7 +78,7 @@ cmd moveto ${{
 	for x in $fx; do
 		eval mv -iv \"$x\" \"$dest\"
 	done &&
-	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+	notify-send "File(s) moved." "File(s) moved to $dest."
 }}
 
 cmd copyto ${{
@@ -87,7 +89,7 @@ cmd copyto ${{
 	for x in $fx; do
 		eval cp -ivr \"$x\" \"$dest\"
 	done &&
-	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+	notify-send "File(s) copied." "File(s) copies to $dest."
 }}
 
 cmd setbg "$1"
@@ -96,8 +98,8 @@ cmd bulkrename $vidir
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-map gh
-map g top
+# map gh
+# map g top
 map D delete
 map E extract
 map C copyto
@@ -112,7 +114,7 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 
 map A rename # at the very end
-map c push A<c-u> # new rename
+# map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
@@ -126,6 +128,11 @@ map V push :!nvim<space>
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
+
+map gd cd ~/documents
+map gD cd ~/downloads
+map gm cd /run/media/sbg
+map gs cd ~/sync
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
