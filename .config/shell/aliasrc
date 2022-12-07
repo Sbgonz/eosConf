@@ -47,7 +47,6 @@ alias \
     fz='fzf | xargs -ro -d "\n" xdg-open 2>&-' \ # open_with_fzf
 
 alias \
-	lf="lfub" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
