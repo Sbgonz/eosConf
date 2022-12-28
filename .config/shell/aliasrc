@@ -21,6 +21,7 @@ alias \
 	yt="yt-dlp --embed-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
+    du="du -h"
 
 # Colorize commands when possible.
 alias \

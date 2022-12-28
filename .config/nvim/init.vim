@@ -35,7 +35,7 @@ set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
-set colorcolumn=100
+set colorcolumn=80
 set tabstop=4  " Indentation 2 spaces
 set shiftwidth=4
 set softtabstop=4
