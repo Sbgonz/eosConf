@@ -11,14 +11,15 @@ map ,, :keepp /<++><CR>ca<
 imap ,, <esc>:keepp /<++><CR>ca<
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'jreybert/vimagit'
-Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-surround' " all about surroundings
+Plug 'preservim/nerdtree' " file explorer
+Plug 'junegunn/goyo.vim' " distraction-free writing in vim
+Plug 'jreybert/vimagit' " perform git operation in a vim buffer
+" Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 set title
@@ -90,6 +91,13 @@ set expandtab  " Insert spaces instead of <Tab>s
     nmap <C-PageUp> :bp<CR>
     nmap <C-PageDown> :bn<CR>
 
+" Maps Surrounding, optional and only in x230
+    vnoremap <leader>( c()<Esc>P
+    vnoremap <leader>[ c[]<Esc>P
+    vnoremap <leader>{ c{}<Esc>P
+    vnoremap <leader>' c''<Esc>P
+    vnoremap <leader>" c""<Esc>P
+
 " Replace ex mode with gq
     map Q gq
 
@@ -121,7 +129,7 @@ set expandtab  " Insert spaces instead of <Tab>s
     autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Save file as sudo on files that require root permission
-    cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+    cabbrev w!! SudaWrite
 
 " Enable Goyo by default for mutt writing
     autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
