@@ -45,9 +45,13 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura" \
-    fz='fzf | xargs -ro -d "\n" xdg-open 2>&-' \ # open_with_fzf
+	fz='for file in $(fzf-tmux -m | xargs -ro -d "\n"); do xdg-open $file 2>&-; done'
+
+
 
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	ctagzett="ctags -R -f $ZETTEL/cTags $ZETTEL/." \
+	cheatsh="cht.sh"
