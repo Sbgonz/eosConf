@@ -6,6 +6,9 @@
 #	If given a directory, choose random file in it.
 #	If wal is installed, also generates a colorscheme.
 
+# check if current DE is not  GNOME
+if [ "$XDG_CURRENT_DESKTOP" != "GNOME" ]; then
+
 # Location of link to wallpaper link.
 bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
 
@@ -32,3 +35,9 @@ fi
 xwallpaper --zoom "$bgloc"
 # If running, dwm hit the key to refresh the color scheme.
 pidof dwm >/dev/null && xdotool key super+F5
+
+# if DE is GNOME do
+fi
+
+gsettings set org.gnome.desktop.background picture-uri "file://$1"
+gsettings set org.gnome.desktop.background picture-uri-dark "file://$1"
